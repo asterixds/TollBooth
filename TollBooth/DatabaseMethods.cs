@@ -73,7 +73,8 @@ namespace TollBooth
                 foreach (var licensePlate in licensePlates)
                 {
                     licensePlate.exported = true;
-                    _log.LogInformation($"Updating document: {licensePlate.Id}");
+                    _log.LogInformation($"Updating document: {0}", licensePlate.Id);
+
                     var response = await _client.ReplaceDocumentAsync(UriFactory.CreateDocumentUri(_databaseId, _collectionId, licensePlate.Id), licensePlate);
 
                     var updated = response.Resource;
